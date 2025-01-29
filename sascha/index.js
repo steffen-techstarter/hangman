@@ -177,3 +177,5 @@ const showResetButton = () => {
 	resetButton.addEventListener('click', restartGame);
 	document.body.appendChild(resetButton);
 };
+
+// Initialisiere das Spiel
