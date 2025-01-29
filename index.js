@@ -1,5 +1,5 @@
 const lettersString = 'abcdefghijklmnopqrstuvwxyz';
-
+//rr
 const letters = lettersString.split('');
 
 const tastatur = document.getElementById('tastatur');
