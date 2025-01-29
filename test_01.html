@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Add the style sheet. -->
+    <link id="theme" rel="stylesheet" type="text/css" href="light.css" />
+
+    <script>
+        function toggleTheme(value) {
+
+            // Obtain the name of stylesheet 
+            // as a parameter and set it 
+            // using href attribute.
+            let sheets = document
+                .getElementsByTagName('link');
+
+            sheets[0].href = value;
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Changing Style Sheets</h2>
+    <br />
+    Switch between multiple themes
+    using the buttons below.<br />
+
+    <button onclick="toggleTheme('light.css')">
+        Light
+    </button>
+
+    <button onclick="toggleTheme('dark.css')">
+        Dark
+    </button>
+
+    <button onclick="toggleTheme('geeky.css')">
+        Geeky
+    </button>
+
+    <button onclick="toggleTheme('aquatic.css')">
+        Aquatic
+    </button>
+</body>
+
+</html>
