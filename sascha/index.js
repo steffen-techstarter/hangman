@@ -63,6 +63,13 @@ const createBlankZielDivs = () => {
 	}
 };
 
+const blockKeyboard = () => {
+	let buttons = document.getElementsByClassName('letter');
+	for (let button of buttons) {
+		button.removeEventListener('click', clickEvent);
+	}
+};
+
 // Eingabeprüfung: Nur Buchstaben erlaubt
 const inputSanitizer = (string) => {
 	for (let i = 0; i < string.length; i++) {
@@ -95,12 +102,14 @@ const clickEvent = (e) => {
 			// Verloren
 			updateErgebnisFeld(gameOver);
 			showResetButton();
+			blockKeyboard();
 		}
 	}
 	// Gewonnen
 	if (wordArray.toString() === targetArray.toString()) {
 		updateErgebnisFeld(congrats);
 		showResetButton();
+		blockKeyboard();
 	}
 };
 
@@ -139,24 +148,26 @@ const createKeyboard = () => {
 
 // Spiel neustarten
 const restartGame = () => {
-	wordArray = [];
-	targetArray = [];
-	leben = 5;
-	updateErgebnisFeld('');
-	zielFeld.innerHTML = '';
-	tastatur.innerHTML = '';
-	wortfeld.value = '';
-	wortfeld.style.display = 'inline-block';
+	// Saschas alter Reset-Code zum Lernen
+	// wordArray = [];
+	// targetArray = [];
+	// leben = 5;
+	// updateErgebnisFeld('');
+	// zielFeld.innerHTML = '';
+	// tastatur.innerHTML = '';
+	// wortfeld.value = '';
+	// wortfeld.style.display = 'inline-block';
 
-	// **Hinweistext wieder anzeigen (aber nur wenn er existiert!)**
-	if (hinweisText) {
-		hinweisText.style.display = 'block';
-	}
+	// // **Hinweistext wieder anzeigen (aber nur wenn er existiert!)**
+	// if (hinweisText) {
+	// 	hinweisText.style.display = 'block';
+	// }
 
-	createKeyboard();
-	resetButton.style.display = 'none';
+	// createKeyboard();
+	// resetButton.style.display = 'none';
 
 	// location.reload() um Seite komplett neu zu laden und alles auf anfang zu setzen
+	location.reload();
 };
 
 // Neustart-Button anzeigen
@@ -166,5 +177,3 @@ const showResetButton = () => {
 	resetButton.addEventListener('click', restartGame);
 	document.body.appendChild(resetButton);
 };
-
-// Initialisiere das Spiel
