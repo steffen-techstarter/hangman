@@ -1,0 +1,50 @@
+.redbackground {
+	background-color: red;
+}
+
+.letter {
+	width: 50px;
+	height: 50px;
+	background-color: aquamarine;
+	margin: 7px;
+	border-style: double;
+	border: solid 5px;
+	border-radius: 7%;
+	border-color: black;
+	&:hover {
+		background-color: rgb(35, 13, 224);
+	}
+}
+
+.letter-clicked-success {
+	width: 50px;
+	height: 50px;
+	background-color: grey;
+	margin: 7px;
+	border-style: double;
+	border: solid 5px;
+	border-radius: 7%;
+	border-color: green;
+}
+
+.letter-clicked-failed {
+	width: 50px;
+	height: 50px;
+	background-color: grey;
+	margin: 7px;
+	border-style: double;
+	border: solid 5px;
+	border-radius: 7%;
+	border-color: red;
+}
+
+#zielwort {
+	display: flex;
+}
+
+.zieldiv {
+	font-size: 30px;
+	display: inline-flex;
+	width: 50px;
+	height: 50px;
+}
