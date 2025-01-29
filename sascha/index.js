@@ -2,6 +2,7 @@
 const lettersString = 'abcdefghijklmnopqrstuvwxyz';
 const letters = lettersString.split('');
 
+
 // Auswahl der relevanten HTML-Elemente
 const tastatur = document.getElementById('tastatur');
 const wortfeld = document.getElementById('wortfeld');
@@ -179,3 +180,9 @@ const showResetButton = () => {
 };
 
 // Initialisiere das Spiel
+
+// SkinWechsel
+function changeSkin(skinNumber) {
+	let skins = document.getElementsByTagName('link');
+	skins[0].href = skinNumber;
+}

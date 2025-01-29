@@ -10,7 +10,7 @@
 	<body>
 		<h1>Hangman-Spiel</h1>
 
-		<input type="text" id="wortfeld" />
+		<input type="text" id="wortfeld" autocomplete="off" />
 		<!-- placeholder="Gib ein Wort ein und drücke Enter, um das Spiel zu starten." -->
 		<div id="zielWort"></div>
 
@@ -19,16 +19,9 @@
 
 		<div id="ergebnis"></div>
 
+		<button onclick="changeSkin('index.css')">Light</button>
 
-		<button onclick="toggleTheme('index.css')">
-			Light
-		</button>
-	
-		<button onclick="toggleTheme('index_01.css')">
-			Dark
-		</button>
-	
-		
+		<button onclick="changeSkin('index_01.css')">Dark</button>
 
 		<script src="index.js" defer></script>
 	</body>
