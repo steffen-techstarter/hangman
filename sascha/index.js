@@ -168,3 +168,9 @@ const showResetButton = () => {
 };
 
 // Initialisiere das Spiel
+
+
+function changeSkin(skinNumber) {
+	skins = document.getElementsByTagName('link');
+	skins[0].href = skinNumber;
+}  
