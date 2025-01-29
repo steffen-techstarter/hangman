@@ -1,7 +1,10 @@
 // Ein String mit allen Buchstaben des Alphabets
 const lettersString = 'abcdefghijklmnopqrstuvwxyz';
 const letters = lettersString.split('');
-
+const row1 = 'qwertzuiop';
+const row2 = 'asdfghjkl';
+const row3 = 'yxcvbnm';
+const rows = [row1.split(''), row2.split(''), row3.split('')];
 
 // Auswahl der relevanten HTML-Elemente
 const tastatur = document.getElementById('tastatur');
@@ -135,15 +138,20 @@ wortfeld.addEventListener('keydown', (e) => {
 const createKeyboard = () => {
 	tastatur.innerHTML = '';
 
-	for (let i = 0; i < letters.length; i++) {
-		let letterDiv = document.createElement('input');
-		letterDiv.setAttribute('type', 'button');
-		letterDiv.innerText = letters[i];
-		letterDiv.classList.add('letter');
-		letterDiv.value = letters[i];
-		letterDiv.setAttribute('id', 'letter' + letters[i]);
-		letterDiv.addEventListener('click', clickEvent);
-		tastatur.appendChild(letterDiv);
+	for (let j = 0; j < rows.length; j++) {
+		let row = rows[j];
+		let rowDiv = document.createElement('div');
+		for (let i = 0; i < row.length; i++) {
+			let letterDiv = document.createElement('input');
+			letterDiv.setAttribute('type', 'button');
+			letterDiv.innerText = row[i];
+			letterDiv.classList.add('letter');
+			letterDiv.value = row[i];
+			letterDiv.setAttribute('id', 'letter' + row[i]);
+			letterDiv.addEventListener('click', clickEvent);
+			rowDiv.appendChild(letterDiv);
+		}
+		tastatur.appendChild(rowDiv);
 	}
 };
 
