@@ -2,7 +2,13 @@
 body {
 	font-family: Arial, sans-serif;
 	text-align: center;
-    background-color: red;
+    background-color: #410c00;
+    background-color: rgba(65,12,0,0.9);
+}
+
+.text {
+    color:white;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 #wortfeld {
@@ -39,22 +45,30 @@ body {
 .letter {
 	width: 50px;
 	height: 50px;
-	background-color: aquamarine;
-	margin: 7px;
+	background-color: #f40000;
+	margin: 25px;
 	border-style: double;
-	border: solid 5px;
-	border-radius: 7%;
-	border-color: black;
+	border: solid 4px;
+	border-radius: 50%;
+	border-color: white;
+    outline-style: solid;
+    outline-color: #200094;
+    outline-width: 200%;
+    color:white;
 	cursor: pointer;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 150%;
+    font-weight:bold
+
 }
 
 .letter:hover {
-	background-color: rgb(35, 13, 224);
+	background-color: #200094;
 }
 
 .letter-clicked-success {
-	background-color: grey;
-	border-color: green;
+	background-color: #200094;
+	border-color: white;
 	cursor: default;
 }
 
@@ -68,4 +82,5 @@ body {
 	font-size: 20px;
 	font-weight: bold;
 	margin-top: 20px;
+    color: white;
 }
