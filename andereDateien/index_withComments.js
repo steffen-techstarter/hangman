@@ -47,7 +47,7 @@ const success = 'Sehr gut! Das war ein Treffer!';
 const congrats = 'Glückwunsch! Du hast das Wort erraten!';
 const inputError = 'Bitte nur alphabetische Werte eingeben.';
 // Variablen für das Spiel
-// ??? wordArray und targetArray auch als 'const' möglich ???
+// ??? wordArray und targetArray auch als 'const' möglich ??? in dieser Version möglich
 // Array mit den Buchstaben des Lösungswort als Elemente
 let wordArray = [];
 // Array mit Unterstrichen (nicht erraten) und erratenen Buchstaben als Elementen
@@ -104,7 +104,7 @@ const createBlankZielDivs = () => {
 	zielFeld.innerHTML = '';
 	// Setze das Rate-Array auf ein leeres Array
 	// ??? Warum wird es hier erneut auf ein leeres Array gesetzt, reicht es nicht in Zeile 53 ???
-	targetArray = [];
+	targetArray = []; // Überbleibsel aus der KonsolenVersion
 	// Durchlaufe die Schleife so oft, wie das Eingabewort Buchstaben enthält
 	for (let i = 0; i < wordArray.length; i++) {
 		// Fülle das Ziel-Array mit einem Unterstrich auf
@@ -117,7 +117,7 @@ const createBlankZielDivs = () => {
 		zielDiv.innerText = '_';
 		// Füge das <div>-Elements als Kind-Element an das Element 'zielFeld' an
 		zielFeld.appendChild(zielDiv);
-		// ??? Warum wird extra ein 'targetArray' erschaffen? ???
+		// ??? Warum wird extra ein 'targetArray' erschaffen? ??? Einfacher, als Werte aus den <div> zu ziehen
 		// ??? Kann man 'wordArray' nicht direkt mit den Kindern von 'zielFeld' vergleichen ???
 	}
 };
