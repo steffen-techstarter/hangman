@@ -150,7 +150,7 @@ wortfeld.addEventListener('keydown', (e) => {
 		let ws = wortfeld.value.toLowerCase();
 		wordArray = ws.split('');
 		createBlankZielDivs();
-		playMusic();
+		// playMusic();
 		flower.style.display = 'block';
 		tastatur.style.display = 'block';
 
