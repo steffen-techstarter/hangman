@@ -4,21 +4,23 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Janniks Hangman-Spiel</title>
-		<!-- <link rel="stylesheet" href="index.css" /> -->
 		<link rel="stylesheet" href="index_01.css" />
 	</head>
+
 	<body>
+
 		<audio id="backgroundMusic" src="../andereDateien/eating-sound-effect-36186.mp3"></audio>
+
+
 		<h1 class="text">Hangman-Spiel</h1>
 
-		<input type="password" id="wortfeld" autocomplete="off" />
-		<!-- placeholder="Gib ein Wort ein und drücke Enter, um das Spiel zu starten." -->
+		<input type="password" id="wortfeld" autocomplete="off" /><!-- placeholder="Gib ein Wort ein und drücke Enter, um das Spiel zu starten." -->
+		
 		<div id="zielWort"></div>
 
-		<h2 id="keyboardtitel" style="display: none">Virtuelle Tastatur</h2>
-		<div id="tastatur"></div>
+		<!-- <h2 id="keyboardtitel" style="display: none">Virtuelle Tastatur</h2> -->
 
-		<div id="ergebnis"></div>
+		<div id="tastatur"></div>
 
 		<div
 					id="snickers"
@@ -28,9 +30,11 @@
 					"
 				></div>
 
-		<!-- <button onclick="changeSkin('index.css')">Light</button>
+		<div id="ergebnis"></div>
 
-		<button onclick="changeSkin('index_01.css')">Dark</button> -->
+		
+
+
 
 		<script src="index.js" defer></script>
 	</body>
