@@ -18,16 +18,17 @@ const tastatur = document.getElementById('tastatur');
 const wortfeld = document.getElementById('wortfeld');
 // <div> Hier wird das Wort geraten, erst werden nur Unterstriche angezeigt, dann ggf. erfolgreich geratene Buchstaben
 const zielFeld = document.getElementById('zielWort');
-// <div> Hier werden Statusmeldungen an den Nutzer angezeigt
+// <div> Hier werden Statusmeldungen für den Nutzer angezeigt
 const ergebnisFeld = document.getElementById('ergebnis');
 // <button> Neustart-Button, wird dynamisch erzeugt und taucht nicht in der index.html auf
 const resetButton = document.createElement('button');
 // <h2> Überschrift für die Tastatur, wird zu Beginn ausgeblendet
 const keyboardtitel = document.getElementById('keyboardtitel');
 
-// ??? warum nicht im html als <div>, im js als const-variable wie alle anderen, ausblenden wie wortfeld, hinweistext bei den anderen texten ???
+// ??? warum Hinweistext nicht im html als <div>, im js als const-variable wie alle anderen, ausblenden wie wortfeld, hinweistext bei den anderen texten ???
 // ??? geht möglicherweise, da jetzt location.reload() genutzt wird ???
 // ??? ähnliche Frage bei Neustart-Button ???
+// ??? Wenn der Button sowieso zu Beginn erzeugt wird, aber erst am Spiel-Ende mit Werten belegt und angezeigt wird, warum dann nicht im HTML einfügen und anfangs ausblenden. Was ist der Vorteil der Neuerschaffung des Elements? ????
 // Prüfe, ob der Hinweistext bereits existiert, ansonsten erstellen
 let hinweisText = document.getElementById('hinweis');
 
@@ -84,7 +85,7 @@ wortfeld.addEventListener('keydown', (e) => {
 });
 // Eingabeprüfung: Nur Buchstaben erlaubt
 const inputSanitizer = (string) => {
-	// Iteriert über die Länge des eingegeben Worts
+	// Schleife iteriert über die Länge des eingegeben Worts
 	for (let i = 0; i < string.length; i++) {
 		// Überprüfung, ob nur im zugelassenen Alphabet enthaltene Werte im Eingabewort enthalten sind, Bedingung negiert
 		if (!letters.includes(string[i])) {
@@ -94,7 +95,7 @@ const inputSanitizer = (string) => {
 			return false;
 		}
 	}
-	// Rückgabewert 'true', das Eingabewort enthält nur erlaubte Buchstaben
+	// Rückgabewert 'true', d.h. das Eingabewort enthält nur erlaubte Buchstaben
 	return true;
 };
 // Erstellen der Platzhalter für das Lösungswort
@@ -122,7 +123,7 @@ const createBlankZielDivs = () => {
 };
 
 
-// ***Ratephase***
+// ***Rate-Phase***
 // Erstelle das virtuelle Keyboard
 const createKeyboard = () => {
 	// Setze den Inhalt des <div>-Elements 'tastatur' auf einen leeren String
@@ -188,23 +189,32 @@ const clickEvent = (e) => {
 		} else {
 			// SChreibe die Fehlermeldung, dass das Spiel verloren wurde
 			updateErgebnisFeld(gameOver);
-			// 
+			// Belege den Neustart-Button mit Werten
 			showResetButton();
+			// Blockiere die Tastatur durch Entfernen der 'EventListener' von allen Buchstaben-Objekten
 			blockKeyboard();
 		}
 	}
-	// Gewonnen, 
+	// Fall: (GEWONNEN) Das Lösungswort entspricht dem vom Nutzer durch Raten gefüllten Ziel-Array
 	if (wordArray.toString() === targetArray.toString()) {
+		// Schreibe die Erfolgsmeldung in die Ergebniszeile
 		updateErgebnisFeld(congrats);
+		// Belege den Neustart-Button mit Werten
 		showResetButton();
+		// Blockiere die Tastatur durch Entfernen der 'EventListener' von allen Buchstaben-Objekten
 		blockKeyboard();
 	}
 };
 // Überprüfung, ob der Buchstabe im Wort enthalten ist, falls ja Anzeige des Buchstaben
 const updateTargetArrayAndZielWort = (letter) => {
+	// Schleife iteriert über die Länge des Lösungsworts
 	for (let i = 0; i < wordArray.length; i++) {
+		// Vergleiche die entsprechende Stelle des Lösungsworts mit dem gewählten Buchstaben
+		// Fall: Die Stelle des Lösungsworts entspricht dem gewählten Buchstaben
 		if (wordArray[i] === letter) {
+			// Fülle die entsprechende Stelle des Ziel-Array mit dem gewählten Buchstabaen
 			targetArray[i] = letter;
+			
 			document.querySelector(`#zielWort div:nth-child(${i + 1})`).innerText =
 				letter;
 		}
