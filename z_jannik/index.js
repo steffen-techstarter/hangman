@@ -13,6 +13,14 @@ const zielFeld = document.getElementById('zielWort');
 const ergebnisFeld = document.getElementById('ergebnis');
 const resetButton = document.createElement('button');
 const keyboardtitel = document.getElementById('keyboardtitel');
+const snickers = document.getElementById('snickers');
+const snickersObject = {
+	4: '../andereDateien/images/snickers/snickers_02.png',
+	3: '../andereDateien/images/snickers/snickers_04.png',
+	2: '../andereDateien/images/snickers/snickers_06.png',
+	1: '../andereDateien/images/snickers/snickers_08.png',
+	0: '../andereDateien/images/snickers/verloren_01.png',
+}
 
 // **Prüfe, ob der Hinweistext bereits existiert, ansonsten erstellen**
 let hinweisText = document.getElementById('hinweis');
@@ -85,8 +93,16 @@ const inputSanitizer = (string) => {
 	return true;
 };
 
+const playMusic = () => {
+	const audio = document.getElementById('backgroundMusic');
+	audio.play().catch((error) => {
+		console.error('Error playing audio:', error);
+	});
+}
+
 // Event für die Tastenklicks
 const clickEvent = (e) => {
+	playMusic();
 	let letterToChange = document.getElementById(
 		'letter' + e.currentTarget.value
 	);
@@ -98,6 +114,7 @@ const clickEvent = (e) => {
 		letterToChange.classList.add('letter-clicked-success');
 	} else {
 		leben--;
+		snickers.style.backgroundImage = 'url(' + snickersObject[leben] + ')';
 		letterToChange.classList.add('letter-clicked-failed');
 
 		if (leben > 0) {
@@ -112,6 +129,7 @@ const clickEvent = (e) => {
 	// Gewonnen
 	if (wordArray.toString() === targetArray.toString()) {
 		updateErgebnisFeld(congrats);
+		snickers.style.backgroundImage = 'url(../andereDateien/images/snickers/gewonnen_01.png)';
 		showResetButton();
 		blockKeyboard();
 	}

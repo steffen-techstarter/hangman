@@ -8,9 +8,10 @@
 		<link rel="stylesheet" href="index_01.css" />
 	</head>
 	<body>
+		<audio id="backgroundMusic" src="../andereDateien/eating-sound-effect-36186.mp3"></audio>
 		<h1 class="text">Hangman-Spiel</h1>
 
-		<input type="text" id="wortfeld" autocomplete="off" />
+		<input type="password" id="wortfeld" autocomplete="off" />
 		<!-- placeholder="Gib ein Wort ein und drücke Enter, um das Spiel zu starten." -->
 		<div id="zielWort"></div>
 
@@ -19,9 +20,17 @@
 
 		<div id="ergebnis"></div>
 
-		<button onclick="changeSkin('index.css')">Light</button>
+		<div
+					id="snickers"
+					style="
+						background-image: url('../andereDateien/images/snickers/snickers_01.png');
+						background-size: cover;
+					"
+				></div>
 
-		<button onclick="changeSkin('index_01.css')">Dark</button>
+		<!-- <button onclick="changeSkin('index.css')">Light</button>
+
+		<button onclick="changeSkin('index_01.css')">Dark</button> -->
 
 		<script src="index.js" defer></script>
 	</body>
