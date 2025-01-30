@@ -49,6 +49,7 @@ const flowerObject = {
 
 const playMusic = () => {
 	const audio = document.getElementById('backgroundMusic');
+	audio.volume = 0.05;
 	audio.play().catch((error) => {
 		console.error('Error playing audio:', error);
 	});
@@ -150,7 +151,7 @@ wortfeld.addEventListener('keydown', (e) => {
 		let ws = wortfeld.value.toLowerCase();
 		wordArray = ws.split('');
 		createBlankZielDivs();
-		// playMusic();
+		playMusic();
 		flower.style.display = 'block';
 		tastatur.style.display = 'block';
 
@@ -185,25 +186,6 @@ const createKeyboard = () => {
 
 // Spiel neustarten
 const restartGame = () => {
-	// Saschas alter Reset-Code zum Lernen
-	// wordArray = [];
-	// targetArray = [];
-	// leben = 5;
-	// updateErgebnisFeld('');
-	// zielFeld.innerHTML = '';
-	// tastatur.innerHTML = '';
-	// wortfeld.value = '';
-	// wortfeld.style.display = 'inline-block';
-
-	// // **Hinweistext wieder anzeigen (aber nur wenn er existiert!)**
-	// if (hinweisText) {
-	// 	hinweisText.style.display = 'block';
-	// }
-
-	// createKeyboard();
-	// resetButton.style.display = 'none';
-
-	// location.reload() um Seite komplett neu zu laden und alles auf anfang zu setzen
 	location.reload();
 };
 
@@ -218,11 +200,5 @@ const showResetButton = () => {
 };
 
 // Initialisiere das Spiel
-
-// SkinWechsel
-function changeSkin(skinNumber) {
-	let skins = document.getElementsByTagName('link');
-	skins[0].href = skinNumber;
-}
 
 createKeyboard();
