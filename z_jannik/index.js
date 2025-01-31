@@ -12,26 +12,26 @@ const wortfeld = document.getElementById('wortfeld');
 const zielFeld = document.getElementById('zielWort');
 const ergebnisFeld = document.getElementById('ergebnis');
 const resetButton = document.createElement('button');
-const keyboardtitel = document.getElementById('keyboardtitel');
+//const keyboardtitel = document.getElementById('keyboardtitel');
 const snickers = document.getElementById('snickers');
 const snickersObject = {
-	4: '../andereDateien/images/snickers/snickers_02.png',
-	3: '../andereDateien/images/snickers/snickers_04.png',
-	2: '../andereDateien/images/snickers/snickers_06.png',
-	1: '../andereDateien/images/snickers/snickers_08.png',
-	0: '../andereDateien/images/snickers/verloren_01.png',
+	4: '../andereDateien/images/snickers/snickers_02_c.png',
+	3: '../andereDateien/images/snickers/snickers_04_c.png',
+	2: '../andereDateien/images/snickers/snickers_06_c.png',
+	1: '../andereDateien/images/snickers/snickers_08_c.png',
+	0: '../andereDateien/images/snickers/verloren_01_c.png',
 }
 
 // **Prüfe, ob der Hinweistext bereits existiert, ansonsten erstellen**
-let hinweisText = document.getElementById('hinweis');
+// let hinweisText = document.getElementById('hinweis');
 
-if (!hinweisText) {
-	hinweisText = document.createElement('p');
-	hinweisText.innerText =
-		'Gib ein Wort ein und drücke Enter, um das Spiel zu starten.';
-	hinweisText.setAttribute('id', 'hinweis');
-	document.body.insertBefore(hinweisText, wortfeld);
-}
+// if (!hinweisText) {
+// 	hinweisText = document.createElement('p');
+// 	hinweisText.innerText =
+// 		'Gib ein Wort ein und drücke Enter, um das Spiel zu starten.';
+// 	hinweisText.setAttribute('id', 'hinweis');
+// 	document.body.insertBefore(hinweisText, wortfeld);
+// }
 
 // Vordefinierte Nachrichten
 const gameOver = 'Verbleibende Leben ist 0. Game Over!';
@@ -129,7 +129,7 @@ const clickEvent = (e) => {
 	// Gewonnen
 	if (wordArray.toString() === targetArray.toString()) {
 		updateErgebnisFeld(congrats);
-		snickers.style.backgroundImage = 'url(../andereDateien/images/snickers/gewonnen_01.png)';
+		snickers.style.backgroundImage = 'url(../andereDateien/images/snickers/gewonnen_01_c.png)';
 		showResetButton();
 		blockKeyboard();
 	}
@@ -144,11 +144,11 @@ wortfeld.addEventListener('keydown', (e) => {
 		createKeyboard();
 
 		// **Verstecke das Eingabefeld und den Hinweistext nach Eingabe und blendet Tastatur-Headline ein**
-		keyboardtitel.style.display = 'block';
+		//keyboardtitel.style.display = 'block';
 		wortfeld.style.display = 'none';
-		if (hinweisText) {
-			hinweisText.style.display = 'none';
-		}
+		// if (hinweisText) {
+		// 	hinweisText.style.display = 'none';
+		// }
 	}
 });
 

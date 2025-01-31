@@ -58,6 +58,7 @@ h1 {
 	display: flex;
 	justify-content: center;
 	margin: 20px;
+	color: white;
 }
 
 .zieldiv {
@@ -72,10 +73,10 @@ h1 {
 }
 
 .letter {
-	width: 50px;
-	height: 50px;
+	width: 75px;
+	height: 75px;
 	background-color: var(--snickersRed);
-	margin: 25px;
+	margin: 6px;
 	border-style: double;
 	border: solid 4px;
 	border-radius: 50%;
@@ -115,8 +116,8 @@ h1 {
 }
 
 #snickers {
-	width: 500px;
-	height: 500px;
+	width: 800px;
+	height: 220px; 
 	margin: auto;
 }
 
