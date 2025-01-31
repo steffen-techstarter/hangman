@@ -2,11 +2,11 @@
 /* fonts */
 @font-face {
 	font-family: snickers_normal;
-	src: url(../andereDateien/fonts/snickers_normal.ttf);
+	src: url(./fonts/snickers_normal.ttf);
   }
 @font-face {
 	font-family: snickers_italic;
-	src: url(../andereDateien/fonts/snickers_italic.ttf);
+	src: url(./fonts/snickers_italic.ttf);
   }
 
   /* colors */
@@ -36,8 +36,8 @@ h1 {
 
 .text {
     color:white;
-    font-family: snickers_italic;
-	font-size: 100px
+    font-family: snickers_normal;
+	font-size: 125px
 }
 
 #wortfeld {

@@ -15,11 +15,11 @@ const resetButton = document.createElement('button');
 //const keyboardtitel = document.getElementById('keyboardtitel');
 const snickers = document.getElementById('snickers');
 const snickersObject = {
-	4: '../andereDateien/images/snickers/snickers_02_c.png',
-	3: '../andereDateien/images/snickers/snickers_04_c.png',
-	2: '../andereDateien/images/snickers/snickers_06_c.png',
-	1: '../andereDateien/images/snickers/snickers_08_c.png',
-	0: '../andereDateien/images/snickers/verloren_01_c.png',
+	4: './snickers/snickers_02_c.png',
+	3: './snickers/snickers_04_c.png',
+	2: './snickers/snickers_06_c.png',
+	1: './snickers/snickers_08_c.png',
+	0: './snickers/verloren_01_c.png',
 }
 
 // **Prüfe, ob der Hinweistext bereits existiert, ansonsten erstellen**
@@ -129,7 +129,7 @@ const clickEvent = (e) => {
 	// Gewonnen
 	if (wordArray.toString() === targetArray.toString()) {
 		updateErgebnisFeld(congrats);
-		snickers.style.backgroundImage = 'url(../andereDateien/images/snickers/gewonnen_01_c.png)';
+		snickers.style.backgroundImage = 'url(./snickers/gewonnen_01_c.png)';
 		showResetButton();
 		blockKeyboard();
 	}
